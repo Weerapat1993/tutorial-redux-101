@@ -25,29 +25,18 @@ const initialState = {
 }
 
 const commentReducer = (state = initialState, action) => {
-  const { setState } = reducerCreator(state, action)
+  const { setStateRequest, setStateSuccess, setStateFailure } = reducerCreator(state, action)
   switch(action.type) {
     case FETCH_COMMENT_BY_POST_ID.REQUEST:
-      return setState({
-        loading: true,
-        error: '',
-      })
+      return setStateRequest()
     case FETCH_COMMENT_BY_POST_ID.SUCCESS:
-      return setState({
-        loading: false,
-        isLoaded: true,
-        data: action.data,
-      })
+      return setStateSuccess({ data: action.data })
     case FETCH_COMMENT_BY_POST_ID.FAILURE:
-      return setState({
-        loading: false,
-        error: action.error.message,
-      })
+      return setStateFailure()
     default:
       return state
   }
 }
-
 
 export const commentSlice = {
   actions: {

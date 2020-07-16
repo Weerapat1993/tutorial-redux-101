@@ -9,24 +9,14 @@ const initialState = {
 }
 
 export const postReducer = (state = initialState, action) => {
-  const { setState } = reducerCreator(state, action)
+  const { setStateRequest, setStateSuccess, setStateFailure } = reducerCreator(state, action)
   switch(action.type) {
     case FETCH_POST.REQUEST:
-      return setState({
-        loading: true,
-        error: '',
-      })
+      return setStateRequest()
     case FETCH_POST.SUCCESS:
-      return setState({
-        loading: false,
-        isLoaded: true,
-        data: action.data,
-      })
+      return setStateSuccess({ data: action.data })
     case FETCH_POST.FAILURE:
-      return setState({
-        loading: false,
-        error: action.error.message,
-      })
+      return setStateFailure()
     default:
       return state
   }
