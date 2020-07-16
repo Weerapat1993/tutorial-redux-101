@@ -1,10 +1,10 @@
 import configureStore from './configureStore'
 import { postReducer } from '../features/post/redux/reducer'
-import { commentReducer } from '../features/comment/redux/reducer'
+import { commentSlice } from '../features/comment/redux/commentSlice'
 
 export default configureStore({
   reducer: {
     post: postReducer,
-    comment: commentReducer,
+    comment: commentSlice.reducer,
   }
 })

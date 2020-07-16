@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
-import { fetchCommentByPostId } from './redux/actions'
+import { commentSlice } from './redux/commentSlice'
 import { Text } from '../../components/Text'
+
+// Actions
+const { fetchCommentByPostId } = commentSlice.actions 
 
 class CommentListContainer extends PureComponent {
   componentDidMount() {
