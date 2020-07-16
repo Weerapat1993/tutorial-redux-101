@@ -1,10 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-
-import Home from './pages/Home';
-import About from './pages/About';
+import Routes from './pages/routes';
 
 function App() {
   return (
@@ -23,14 +21,7 @@ function App() {
       </header>
 
       <Router>
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Routes />
       </Router>
     </div>
   );
