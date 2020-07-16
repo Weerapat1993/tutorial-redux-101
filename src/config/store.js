@@ -13,9 +13,7 @@ const storeEnhancer = [
 const finalCreateStore = compose(...storeEnhancer)(createStore)
 
 // configureStore
-function configureStore(config) {
-  return finalCreateStore(config.reducer)
-}
+const configureStore = (config) => finalCreateStore(config.reducer)
 
 export default configureStore({
   reducer: rootReducers
